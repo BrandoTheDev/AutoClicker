@@ -101,5 +101,24 @@ namespace AutoClicker
             }
         }
 
+        private void lblClickSpeedMS_Click(object sender, EventArgs e)
+        {
+            ttClickSpeed.Show("Time between each click done in milliseconds", lblClickSpeedMS);
+        }
+
+        private void labelClickAmount_Click(object sender, EventArgs e)
+        {
+            ttClickAmount.Show("Amount of clicks you would like to perform", labelClickAmount);
+        }
+
+        private void lblTimer_Click(object sender, EventArgs e)
+        {
+            ttTimer.Show("How long it took to complete all the clicks", lblTimer);
+        }
+
+        private void lblTotalClicks_Click(object sender, EventArgs e)
+        {
+            ttTotalClicks.Show("Total amount of clicks since the program started", lblTotalClicks);
+        }
     }
 }

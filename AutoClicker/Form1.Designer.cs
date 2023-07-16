@@ -47,10 +47,13 @@
             amountToClickUpDown = new NumericUpDown();
             startAutoClickButton = new Button();
             timeBetweenClicksUpDown = new NumericUpDown();
-            label8 = new Label();
-            label7 = new Label();
+            labelClickAmount = new Label();
+            lblClickSpeedMS = new Label();
             updateInfoLabelsTimer = new System.Windows.Forms.Timer(components);
-            toolTip1 = new ToolTip(components);
+            ttClickSpeed = new ToolTip(components);
+            ttClickAmount = new ToolTip(components);
+            ttTimer = new ToolTip(components);
+            ttTotalClicks = new ToolTip(components);
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)mousePositionYUpDown).BeginInit();
@@ -102,6 +105,7 @@
             lblTotalClicks.Size = new Size(69, 15);
             lblTotalClicks.TabIndex = 6;
             lblTotalClicks.Text = "Total Clicks:";
+            lblTotalClicks.Click += lblTotalClicks_Click;
             // 
             // lblClicks
             // 
@@ -129,6 +133,7 @@
             lblTimer.Size = new Size(43, 15);
             lblTimer.TabIndex = 2;
             lblTimer.Text = "Timer: ";
+            lblTimer.Click += lblTimer_Click;
             // 
             // lblCurrentY
             // 
@@ -158,8 +163,8 @@
             groupBox2.Controls.Add(amountToClickUpDown);
             groupBox2.Controls.Add(startAutoClickButton);
             groupBox2.Controls.Add(timeBetweenClicksUpDown);
-            groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(label7);
+            groupBox2.Controls.Add(labelClickAmount);
+            groupBox2.Controls.Add(lblClickSpeedMS);
             groupBox2.Location = new Point(224, 11);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(197, 169);
@@ -237,30 +242,29 @@
             timeBetweenClicksUpDown.TabIndex = 1;
             timeBetweenClicksUpDown.ValueChanged += timeBetweenClicksUpDown_ValueChanged;
             // 
-            // label8
+            // labelClickAmount
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(6, 44);
-            label8.Name = "label8";
-            label8.Size = new Size(80, 15);
-            label8.TabIndex = 1;
-            label8.Text = "Click Amount";
+            labelClickAmount.AutoSize = true;
+            labelClickAmount.Location = new Point(6, 44);
+            labelClickAmount.Name = "labelClickAmount";
+            labelClickAmount.Size = new Size(80, 15);
+            labelClickAmount.TabIndex = 1;
+            labelClickAmount.Text = "Click Amount";
+            labelClickAmount.Click += labelClickAmount_Click;
             // 
-            // label7
+            // lblClickSpeedMS
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(6, 19);
-            label7.Name = "label7";
-            label7.Size = new Size(92, 15);
-            label7.TabIndex = 0;
-            label7.Text = "Click Speed(ms)";
+            lblClickSpeedMS.AutoSize = true;
+            lblClickSpeedMS.Location = new Point(6, 19);
+            lblClickSpeedMS.Name = "lblClickSpeedMS";
+            lblClickSpeedMS.Size = new Size(92, 15);
+            lblClickSpeedMS.TabIndex = 0;
+            lblClickSpeedMS.Text = "Click Speed(ms)";
+            lblClickSpeedMS.Click += lblClickSpeedMS_Click;
             // 
             // updateInfoLabelsTimer
             // 
             updateInfoLabelsTimer.Tick += updateInfoLabelsTimer_Tick;
-            // 
-            // toolTip1
-            // 
             // 
             // AutoClickerForm
             // 
@@ -295,10 +299,10 @@
         private Label lblActive;
         private Label lblTotalClicks;
         private Label lblClicks;
-        private Label label7;
+        private Label lblClickSpeedMS;
         private Label lblLockedY;
         private Label lblLockedX;
-        private Label label8;
+        private Label labelClickAmount;
         private Button resetTotalClicks;
         private NumericUpDown amountToClickUpDown;
         private NumericUpDown timeBetweenClicksUpDown;
@@ -308,6 +312,9 @@
         private NumericUpDown mousePositionYUpDown;
         private NumericUpDown mousePositionXUpDown;
         private System.Windows.Forms.Timer updateInfoLabelsTimer;
-        private ToolTip toolTip1;
+        private ToolTip ttClickSpeed;
+        private ToolTip ttClickAmount;
+        private ToolTip ttTimer;
+        private ToolTip ttTotalClicks;
     }
 }
